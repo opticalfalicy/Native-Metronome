@@ -15,7 +15,7 @@ export default class Main extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            counting: true,
+            counting: Boolean,
             // measure: 4,
             // count: 0,
             countArr: [1, 2, 3, 4],
@@ -67,14 +67,14 @@ export default class Main extends React.Component {
 
     componentDidMount(){
         this.setState({
-            counting: true
+            counting: !this.props.counting
         })
         
     }
 
     render(){
-        console.log(this.state.counting);
-        // console.log(this.props.counting);
+        // console.log(this.state.counting);
+        console.log(this.props.counting);
 
         let textToggle;
         let buttonToggle;
