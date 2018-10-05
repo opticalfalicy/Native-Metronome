@@ -1,29 +1,67 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import Main from './components/Main.js'
 
 type Props = {};
 export default class App extends Component<Props> {
+  constructor(props){
+    super(props);
+    this.state={
+      countArr: [1, 2, 3, 4],
+      counting: false
+    }
+  }
+
+  countingOn = () => {
+    console.log('1')
+    // this.setState({ 
+    //     // counting: 1,
+    // });
+    console.log(this.state.counting);
+    // this.testFunc();
+
+    // console.log(this.state.counting)
+    
+    // if(this.state.counting == true){
+    // }
+    // let cntArr = this.state.countArr;
+    // // let i = 0
+    // let repeat = false;
+
+
+
+    // const ubpm = 60000 / 120;
+
+    // // while(this.state.counting == true){
+    //     for (let i = 0; i < cntArr.length; i++) {
+    //         (function (i) {
+    //             setTimeout(function () {
+
+    //                 console.log(cntArr[i]);
+    //         }, ubpm*i);
+    //     })(i);
+    //     console.log('repeat');
+    // }
+    
+
+// }
+}
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <View style={styles.mainView}>
+          <Main counting={this.state.counting} countArr={this.state.countArr} style={styles.main}/>
+        </View>
+        <View style={styles.bottomView}>
+          {/* <Time style={styles.time}/> */}
+          {/* <Bpm /> */}
+          {/* <Text style={styles.maincolor}>Open up App.js to start working on your app!</Text> */}
+        </View>
       </View>
     );
   }
@@ -32,18 +70,12 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#000',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: 'space-evenly',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  bottomView: {
+    width: 200,
+    height: 150,
+  }
 });
