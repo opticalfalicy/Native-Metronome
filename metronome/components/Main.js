@@ -20,7 +20,7 @@ export default class Main extends React.Component {
             // count: 0,
             countArr: [1, 2, 3, 4],
             // counting: false,
-            bpm: Number,
+            bpm: this.props.bpm,
         };
         
         
@@ -28,7 +28,7 @@ export default class Main extends React.Component {
     
     counterHandler = () => {
 
-        const ubpm = this.state.bpm;
+        const ubpm = this.props.bpm;
 
         
         this.setState({ 
@@ -43,8 +43,8 @@ export default class Main extends React.Component {
 
         if(this.state.counting == true){
             counting = setInterval(function(){
-                console.log('x');
-                // console.log(i)
+                i++
+                console.log(i)
             }, ubpm);
         }
         
@@ -76,7 +76,8 @@ export default class Main extends React.Component {
 
     render(){
         // console.log(this.state.counting);
-        console.log(this.props.counting);
+        // console.log(this.props.counting);
+        console.log('main', this.props.bpm)
 
         let textToggle;
         let buttonToggle;
