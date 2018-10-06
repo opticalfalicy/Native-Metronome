@@ -20,6 +20,7 @@ export default class Main extends React.Component {
             // count: 0,
             countArr: [1, 2, 3, 4],
             // counting: false,
+            bpm: Number,
         };
         
         
@@ -27,7 +28,7 @@ export default class Main extends React.Component {
     
     counterHandler = () => {
 
-        const ubpm = 60000 / 120;
+        const ubpm = this.state.bpm;
 
         
         this.setState({ 
@@ -67,7 +68,8 @@ export default class Main extends React.Component {
 
     componentDidMount(){
         this.setState({
-            counting: !this.props.counting
+            counting: !this.props.counting,
+            bpm: this.props.bpm
         })
         
     }
