@@ -1,15 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-// import { PlaySound, StopSound, PlaySoundRepeat, PlaySoundMusicVolume } from 'react-native-play-sound';
 
+var Sound = require('react-native-sound');
 
-// const SOUNDLIST = [
-//     new SoundlistItem(
-//         'block',
-        
-//     )
-// ]
+Sound.setCategory('Playback');
 
+var block = new Sound('block.mp3', Sound.LIBRARY, (error) => {
+    if (error) {
+      console.log('failed to load the sound', error);
+      return;
+    }
+    // loaded successfully
+    console.log('duration in seconds: ' + block.getDuration() + 'number of channels: ' + block.getNumberOfChannels());
+  });
 
 export default class Main extends React.Component {
     constructor(props){
@@ -34,6 +37,8 @@ export default class Main extends React.Component {
         this.setState({ 
             counting: !this.state.counting
         });
+
+
         // console.log(this.state.counting)
 
         // var counting = setInterval(function() {
@@ -43,6 +48,16 @@ export default class Main extends React.Component {
 
         if(this.state.counting == true){
             counting = setInterval(function(){
+                block.play((success) => {
+                    if (success) {
+                      console.log('successfully finished playing');
+                    } else {
+                      console.log('playback failed due to audio decoding errors');
+                      // reset the player to its uninitialized state (android only)
+                      // this is the only option to recover after an error occured and use the player again
+                      block.reset();
+                    }
+                  });
                 i++
                 console.log(i)
             }, ubpm);
@@ -52,7 +67,7 @@ export default class Main extends React.Component {
             clearInterval(counting)
         }
 
-        console.log(i)
+        // console.log(i)
 
         // this.counting = setInterval(function(){
         //         console.log('x')
