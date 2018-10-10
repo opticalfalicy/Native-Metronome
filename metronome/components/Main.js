@@ -49,17 +49,15 @@ export default class Main extends React.Component {
         if(this.state.counting == true){
             counting = setInterval(function(){
                 block.play((success) => {
-                    if (success) {
+                    // if (success) {
                       console.log('successfully finished playing');
-                    } else {
-                      console.log('playback failed due to audio decoding errors');
-                      // reset the player to its uninitialized state (android only)
-                      // this is the only option to recover after an error occured and use the player again
-                      block.reset();
-                    }
+                    // } else {
+                    //   console.log('playback failed due to audio decoding errors');
+                    //   // reset the player to its uninitialized state (android only)
+                    //   // this is the only option to recover after an error occured and use the player again
+                    //   block.reset();
+                    // }
                   });
-                i++
-                console.log(i)
             }, ubpm);
         }
         
@@ -95,7 +93,6 @@ export default class Main extends React.Component {
         console.log('main', this.props.bpm)
 
         let textToggle;
-        let buttonToggle;
 
         if (this.state.counting == true){
             textToggle = (
