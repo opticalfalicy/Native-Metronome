@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+// Not really in use yet
+
 export default class Time extends React.Component {
     render(){
         return(
@@ -18,9 +20,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        // borderStyle: 'solid',
-        // borderColor: 'red',
-        // borderWidth: 5,
     },
     label:{
         color: 'rgb(225, 102, 205)',
@@ -28,13 +27,8 @@ const styles = StyleSheet.create({
     },
     content:{
         color: 'rgb(225, 102, 205)',
-        // borderStyle: 'solid',
-        // borderColor: 'blue',
-        // borderWidth: 3,
         fontSize: 28,
         width: 18,
         marginRight: 25,
     }
-
-
 })

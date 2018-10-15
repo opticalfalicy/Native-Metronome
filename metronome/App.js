@@ -10,22 +10,25 @@ type Props = {};
 export default class App extends Component<Props> {
   constructor(props){
     super(props);
+    this.handleBpmChange = this.handleBpmChange.bind(this);
     this.state={
       counting: false,
       bpm: 120,
     }
   }
 
+  handleBpmChange(bpm){
+    this.setState({bpm})
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.mainView}>
-          <Main counting={this.state.counting} countArr={this.state.countArr} style={styles.main}/>
+          <Main counting={this.state.counting} bpm={bpm} countArr={this.state.countArr} style={styles.main}/>
         </View>
         <View style={styles.bottomView}>
-          {/* <Time style={styles.time}/> */}
-          <Bpm bpm={this.state.bpm} />
-          {/* <Text style={styles.maincolor}>Open up App.js to start working on your app!</Text> */}
+          <Bpm bpm={bpm} handleBpmChange={this.handleBpmChange} />
         </View>
       </View>
     );
