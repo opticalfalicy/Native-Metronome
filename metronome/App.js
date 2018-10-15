@@ -22,19 +22,13 @@ export default class App extends Component<Props> {
   }
 
   render() {
-    const bpm = this.state.bpm;
-    // console.log('ap', bpm);
-    
-
     return (
       <View style={styles.container}>
         <View style={styles.mainView}>
           <Main counting={this.state.counting} bpm={bpm} countArr={this.state.countArr} style={styles.main}/>
         </View>
         <View style={styles.bottomView}>
-          {/* <Time style={styles.time}/> */}
           <Bpm bpm={bpm} handleBpmChange={this.handleBpmChange} />
-          {/* <Text style={styles.maincolor}>Open up App.js to start working on your app!</Text> */}
         </View>
       </View>
     );

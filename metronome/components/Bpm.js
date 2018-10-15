@@ -3,20 +3,20 @@ import { StyleSheet, ScrollView, Text, View, Slider } from 'react-native';
 
 
 export default class Bpm extends React.Component {
+
     constructor(props){
         super(props);
         this.state={
             bpm: Number,
             dispBpm: 120,
-        }
-
-    }
+        };
+    };
 
     componentDidMount(){
         this.setState({
             bpm: this.props.bpm,
-        })
-    }
+        });
+    };
 
     getVal(val){
         dispVal = val;
@@ -24,19 +24,12 @@ export default class Bpm extends React.Component {
         this.setState({
             bpm: val,
             dispBpm: dispVal
-        })
-        // console.warn(val);
-    }  
-
+        });
+    };  
 
 
     render(){
-
-
-
         let bpm = this.state.bpm;
-        // console.log('bpm', this.props.bpm);
-
         return(
             <View style={styles.container}>
                 <Text style={styles.label}>BPM</Text>
@@ -48,18 +41,16 @@ export default class Bpm extends React.Component {
                 value={120}
                 thumbTintColor={'rgb(225, 102, 205)'}
                 minimumTrackTintColor={'rgb(225, 102, 205)'}
-
                 onValueChange={val => this.getVal(val)}
                 onSlidingComplete={() => this.props.handleBpmChange(bpm)}
-                
                 />
                 <Text style={styles.content}>
                     {this.state.dispBpm}
                 </Text>
             </View>
         );
-    }
-}
+    };
+};
 
 const styles = StyleSheet.create({
     container:{
@@ -67,9 +58,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        // borderStyle: 'solid',
-        // borderColor: 'red',
-        // borderWidth: 5,
     },
     label:{
         color: 'rgb(225, 102, 205)',
@@ -83,5 +71,4 @@ const styles = StyleSheet.create({
         color: 'rgb(225, 102, 205)',
         width: 120,
     }
-
-})
+});
